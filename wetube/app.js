@@ -7,6 +7,7 @@ import bodyParser from "body-parser";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 import globalRouter from "./routers/globalRouter";
+import routes from "./routes";
 
 const app = express();
 
@@ -31,9 +32,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(helmet());
 app.use(morgan("dev"));
 
-app.use("/", globalRouter);
-app.use("/user", userRouter); // 가져온 userRouter에서 해당 /user로 내용을 가져올수있다. 또한 use의 의미는 누군가 /user 경로에 접속하면 이 router 전체를 사용하겠다는 의미다.
-app.use("/video", videoRouter);
+app.use(routes.home, globalRouter);
+app.use(routes.users, userRouter);
+app.use(routes.videos, videoRouter);
 
 // 누군가 내 파일을 불러올때(import) app object를 주겠다는 의미다.
 // 그럼 app object가 뭐냐면 위에 app.으로 시작되는 모든 것들이며 우리가 설정한 것을 의미한다.
