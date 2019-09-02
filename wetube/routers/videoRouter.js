@@ -1,13 +1,20 @@
 import express from "express";
 import routers from "../routes";
+import {
+    videos,
+    upload,
+    videoDetail,
+    editVideo,
+    deleteVideo
+} from "../controllers/videoController";
 
 const videoRouter = express.Router();
 
-videoRouter.get(routers.videos, (req, res) => res.send("Video"));
-videoRouter.get(routers.upload, (req, res) => res.send("Upload"));
-videoRouter.get(routers.videoDetail, (req, res) => res.send("Video Detail"));
-videoRouter.get(routers.editVideo, (req, res) => res.send("Edit Video"));
-videoRouter.get(routers.deleteVideo, (req, res) => res.send("Delete Video"));
+videoRouter.get(routers.videos, videos);
+videoRouter.get(routers.upload, upload);
+videoRouter.get(routers.videoDetail, videoDetail);
+videoRouter.get(routers.editVideo, editVideo);
+videoRouter.get(routers.deleteVideo, deleteVideo);
 
 // videoRouter.js 전체를 export 해준다.
 export default videoRouter;
