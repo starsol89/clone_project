@@ -25,7 +25,7 @@ const betweenHome = (req, res, next) => {
 
 기본적으로 웹사이트에서 일어나는 모든 것에 대해 middleware 함수가 쓰여지게 할 것이다 이 app.use(betweenHome) 은!
 app.use(betweenHome);*/
-
+app.set("view engine", "pug");
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
