@@ -13,10 +13,10 @@
     즉 밑에 arrow function에서 무언가 리턴하고 싶다면, 밑에 코드 처럼 작성하면 된다. 정리하면 true를 리턴하는 함수이다.
 */
 
-export const join = (req, res) => res.send("Join");
-export const login = (req, res) => res.send("Login");
-export const logout = (req, res) => res.send("Logout");
-export const users = (req, res) => res.send("Users");
-export const userDetail = (req, res) => res.send("User Detail");
-export const editProfile = (req, res) => res.send("Edit Profile");
-export const changePassword = (req, res) => res.send("Change Password");
+export const join = (req, res) => res.render("Join");
+export const login = (req, res) => res.render("Login");
+export const logout = (req, res) => res.render("Logout");
+export const users = (req, res) => res.render("Users");
+export const userDetail = (req, res) => res.render("User Detail");
+export const editProfile = (req, res) => res.render("Edit Profile");
+export const changePassword = (req, res) => res.render("Change Password");
