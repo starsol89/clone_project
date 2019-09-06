@@ -3,11 +3,13 @@ import morgan from "morgan";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
+import { localsMiddleware } from "./middlewares";
+import routes from "./routes";
 // import { userRouter } from "./routers/userRouter"; router.js 에서 만들어진 userRouter를 import 해준것.
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 import globalRouter from "./routers/globalRouter";
-import routes from "./routes";
+
 
 const app = express();
 
@@ -25,12 +27,13 @@ const betweenHome = (req, res, next) => {
 
 기본적으로 웹사이트에서 일어나는 모든 것에 대해 middleware 함수가 쓰여지게 할 것이다 이 app.use(betweenHome) 은!
 app.use(betweenHome);*/
+app.use(helmet());
 app.set("view engine", "pug");
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(helmet());
 app.use(morgan("dev"));
+app.use(localsMiddleware);
 
 app.use(routes.home, globalRouter);
 app.use(routes.users, userRouter);
