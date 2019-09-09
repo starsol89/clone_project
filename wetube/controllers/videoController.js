@@ -1,5 +1,10 @@
 export const home = (req, res) => res.render("home", { pageTitle: "Home"});
-export const search = (req, res) => res.render("search", { pageTitle: "Search"});
+
+export const search = (req, res) => {
+    const { query: {term: searchingBy }} = req; // 이 줄의 내용과 const searchingBy = req.query.params는 같다.
+    res.render("search", { pageTitle: "Search", searchingBy});
+} 
+
 export const upload = (req, res) => res.render("upload", { pageTitle: "Upload"});
 export const video = (req, res) => res.render("video", { pageTitle: "Video"});
 export const videoDetail = (req, res) => res.render("video Detail", { pageTitle: "Video Detail"});
