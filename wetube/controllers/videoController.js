@@ -1,4 +1,8 @@
-export const home = (req, res) => res.render("home", { pageTitle: "Home"});
+import {videos} from "../db"
+
+export const home = (req, res) => {
+    res.render("home", { pageTitle: "Home", videos});
+};
 
 export const search = (req, res) => {
     const { query: {term: searchingBy }} = req; // 이 줄의 내용과 const searchingBy = req.query.params는 같다.
