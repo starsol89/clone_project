@@ -6,7 +6,7 @@ const videoRouter = express.Router();
 
 videoRouter.get(routers.videos, video);
 videoRouter.get(routers.upload, upload);
-videoRouter.get(routers.videoDetail, videoDetail);
+videoRouter.get(routers.videoDetail(), videoDetail);
 videoRouter.get(routers.editVideo, editVideo);
 videoRouter.get(routers.deleteVideo, deleteVideo);
 
