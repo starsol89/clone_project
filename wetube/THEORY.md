@@ -66,3 +66,28 @@ Node.js를 쓰는 이유는 무엇일까?
     
     설치 완료 이후 우리의 package.json에는 "dependencles" : {"express":"해당 버전명"} 이 작성 되어 있는 것을 확인 할 수 있다.
     
+### Your First Express Server 및 .gitignore에 대해서
+
+해당 서버의 첫 걸음은
+
+    const express = require('express'); 를 통해서 node_modales 폴더에 있는 Express를 import하고 
+    const app = express(); 를 통해서 사용하면 된다. app로 사용 가능
+      
+    const PORT = 4000; ---> 좀 더 깔끔하게 보이기 위한 코딩 밑에 ${PORT}를 위해 사용
+
+	function handleListening() {
+  		console.log(`Listening on: http://localhost:${PORT}`);
+	}
+    콜백함수를 사용하는 것. 
+
+	app.listen(PORT, handleListening); app에게 (app는 express와 같다) 4000번 포트를 listen 하게 해주고, 
+    listening 하기 시작할때, handleListening 이라는 함수를 호출 해준다.
+    
+ 이러면 localhost:40000 으로 가게 되면 서버가 실행 된 것을 알 수 있다. 그전에 서버 가동 해줘야함. 
+ 나는 package.json에 
+ 
+ 	"scripts": {
+    "start": "node index.js"
+    }
+    
+설정을 해주었기에 npm start만 해주면 서버가 가동 된다.
